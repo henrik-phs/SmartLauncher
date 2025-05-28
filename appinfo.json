@@ -1,0 +1,14 @@
+{
+  "id": "com.smart.launcher",
+  "version": "1.0.0",
+  "vendor": "My Company",
+  "type": "web",
+  "main": "index.html",
+  "title": "Smart Launcher",
+  "icon": "assets/imgs/SmartLauncher.png",
+  "requiredPermissions": [
+    "time.query",
+    "activity.operation",
+    "application.operation"
+  ]
+}

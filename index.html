@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Launcher</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
+
+    <script src="plugins/jquery/jquery-3.7.1.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/bootstrap/js/popper.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+    <script src="keys.js"></script>
+    <script src="assets/js/apps.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/searcher.js"></script>
+
+    <script src="webOSTVjs-1.2.10/webOSTV.js" charset="utf-8"></script>
+	<script src="webOSTVjs-1.2.10/webOSTV-dev.js" charset="utf-8"></script>
+    
+    <script>
+        // webOS.service.request("luna://com.webos.service.applicationmanager", {
+        //     method: "listApps",
+        //     parameters: {},
+        //     onSuccess: function (res) {
+        //         console.log("List apps success:", res);
+        //         $("#list-apps").html("List apps success: " + JSON.stringify(res));
+        //         // `res` contains an array of app information.
+        //         // You can iterate through this array to get app details.
+        //     },
+        //     onFailure: function (res) {
+        //         console.log("List apps fail:", res);
+        //         $("#list-apps").html("List apps fail: " + JSON.stringify(res));
+        //     }
+        // });
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="header-content">
+        <div class="content">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a href="index.html" class="nav-link nav-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                            class="nav-icon"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                            <path
+                                d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
+                        </svg>
+                        Início
+                    </a>
+
+                    <a href="apps.html" class="nav-link nav-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            class="nav-icon"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                            <path
+                                d="M296 32h192c13.3 0 24 10.7 24 24v160c0 13.3-10.7 24-24 24H296c-13.3 0-24-10.7-24-24V56c0-13.3 10.7-24 24-24zm-80 0H24C10.7 32 0 42.7 0 56v160c0 13.3 10.7 24 24 24h192c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24zM0 296v160c0 13.3 10.7 24 24 24h192c13.3 0 24-10.7 24-24V296c0-13.3-10.7-24-24-24H24c-13.3 0-24 10.7-24 24zm296 184h192c13.3 0 24-10.7 24-24V296c0-13.3-10.7-24-24-24H296c-13.3 0-24 10.7-24 24v160c0 13.3 10.7 24 24 24z" />
+                        </svg>
+                        Apps
+                    </a>
+
+                    <button class="nav-link nav-button" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            class="nav-icon"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                            <path
+                                d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2l144 0c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48l-97.5 0c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3l0-38.3 0-48 0-24.9c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192l64 0c17.7 0 32 14.3 32 32l0 224c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32L0 224c0-17.7 14.3-32 32-32z" />
+                        </svg>
+                        Recomendados
+                    </button>
+
+                    <div class="ms-auto d-flex align-items-center">
+                        <!-- pesquisa -->
+                        <button type="button" class="nav-link btn-nav" onclick="showModalBar('search-bar')">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                class="nav-icon"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                <path
+                                    d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" />
+                            </svg>
+                        </button>
+
+                        <!-- configurações -->
+                        <button type="button" class="nav-link btn-nav" onclick="showModalBar('modal-config')">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                class="nav-icon"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                <path
+                                    d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4 .6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z" />
+                            </svg>
+                        </button>
+                        <div id="time-container" class="text-end">
+                            <span id="time"></span><br>
+                            <span id="date"></span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-fluid content-slider">
+                <div class="row">
+                    <div class="col-7">
+                        <h2 id="movie-title">Filme 1</h2>
+                        <p id="movie-description">descrição do filme</p>
+
+                        <div id="btn-more"></div>
+                    </div>
+                    <div class="col-5" style="height: 100%;">
+                        <span style="width: 10px; height: 10px; border-radius: 50%; background: #fff;"></span>
+                        <span style="width: 10px; height: 10px; border-radius: 50%; background: #fff;"></span>
+                        <span style="width: 10px; height: 10px; border-radius: 50%; background: #fff;"></span>
+                        <span style="width: 10px; height: 10px; border-radius: 50%; background: #fff;"></span>
+                    </div>
+                </div>
+
+                <div class="content-apps">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Aplicativos</h2>
+                            <span id="list-apps"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="card_app">
+                                <img src="assets/imgs/logos/tv.png" id="imgtv" class="card-img-top" alt="tv"><br>
+                                <!-- <span>TV</span> -->
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card_app">
+                                <img src="assets/imgs/logos/netflix.png" class="card-img-top" alt="tv"><br>
+                                <!-- <span>Netflix</span> -->
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card_app">
+                                <img src="assets/imgs/logos/max.png" class="card-img-top" alt="tv"><br>
+                                <!-- <span>Max</span> -->
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card_app">
+                                <img src="assets/imgs/logos/prime-video.png" class="card-img-top" alt="tv"><br>
+                                <!-- <span>Prime Vídeo</span> -->
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card_app">
+                                <img src="assets/imgs/logos/disney.png" class="card-img-top" alt="tv"><br>
+                                <!-- <span>Disney+</span> -->
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card_app">
+                                <img src="assets/imgs/logos/browser.png" class="card-img-top" alt="tv"><br>
+                                <!-- <span>Navegador</span> -->
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card_app">
+                                <img src="assets/imgs/logos/youtube.png" class="card-img-top" alt="tv"><br>
+                                <!-- <span>YouTube</span> -->
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card_app">
+                                <img src="assets/imgs/logos/tv.png" class="card-img-top" alt="tv"><br>
+                                <!-- <span>TV</span> -->
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card_app">
+                                <img src="assets/imgs/logos/tv.png" class="card-img-top" alt="tv"><br>
+                                <!-- <span>TV</span> -->
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card_app">
+                                <img src="assets/imgs/logos/tv.png" class="card-img-top" alt="tv"><br>
+                                <!-- <span>TV</span> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-bar" id="search-bar">
+        <div class="modal-bar-dialog">
+            <div class="modal-bar-header text-end">
+                <button type="button" class="btn-closer" aria-label="Close" onclick="hideModalBar('search-bar')">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                        width="25px"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        <path
+                            d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-bar-body">
+                <div class="container-fluid">
+                    <div class="row"><!-- PESQUISA -->
+                        <div class="col">
+                            <button type="button" class="btn-outline">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+                                    width="20px"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                    <path
+                                        d="M192 0C139 0 96 43 96 96l0 160c0 53 43 96 96 96s96-43 96-96l0-160c0-53-43-96-96-96zM64 216c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c0 89.1 66.2 162.7 152 174.4l0 33.6-48 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l72 0 72 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-48 0 0-33.6c85.8-11.7 152-85.3 152-174.4l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c0 70.7-57.3 128-128 128s-128-57.3-128-128l0-40z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="col-11">
+                            <input type="text" class="form-input" id="search-input" placeholder="Pesquisar..."
+                                onkeyup="searcher()">
+                        </div>
+                    </div>
+
+                    <div class="row" id="results_apps" style="margin-top: 20px; display: none;"><!-- APPS -->
+                        <h2>Aplicativos</h2>
+                    </div>
+
+                    <div class="row mt-3" id="results_movies_tv"><!-- FILMES E SÉRIES --></div>
+
+                    <div class="row"><!-- INTERNET --></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-bar" id="modal-config">
+        <div class="modal-bar-dialog">
+            <div class="modal-bar-header text-end">
+                <button type="button" class="btn-closer" aria-label="Close" onclick="hideModalBar('modal-config')">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                        width="25px"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        <path
+                            d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-bar-body">
+                <div class="container-fluid">
+                    <div class="row"><!-- PESQUISA -->
+                        <div class="col">
+                            <div id="configScreen" class="screen">
+                                <h1>Configuração de Apps</h1>
+                                <form id="addAppForm">
+                                    <input type="text" id="appName" placeholder="Nome" required>
+                                    <input type="text" id="appId" placeholder="App ID" required>
+                                    <input type="text" id="appIcon" placeholder="URL do Ícone" required>
+                                    <button type="submit">Adicionar App</button>
+                                </form>
+
+                                <div class="app-grid" id="configAppGrid"></div>
+
+                                <button onclick="saveAndBack()">💾 Salvar e Voltar</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-bar" id="more-info">
+        <div class="modal-bar-dialog">
+            <div class="modal-bar-header text-end">
+                <button type="button" class="btn-closer" aria-label="Close" onclick="hideModalBar('more-info')">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                        width="25px"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        <path
+                            d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-bar-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="#" id="modal-movie-poster" class="card-img-top" alt="tv" width="100%"><br>
+                        </div>
+                        <div class="col-8">
+                            <h2 id="modal-movie-title-more"></h2>
+                            <p id="modal-movie-description-more" style="font-size: 25px"></p>
+
+                            <p>Onde assistir:</p>
+                            <div id="modal-movie-providers">
+                                <img src="https://image.tmdb.org/t/p/original/9ghgSC0MA082EL6HLCW3GalykFD.jpg"
+                                    width="50px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body" style="padding: 20px;">
+                    <div class="text-end">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="#" id="modal-movie-poster2" class="card-img-top" alt="tv" width="100%"><br>
+                        </div>
+                        <div class="col-8">
+                            <h2 id="modal-movie-title"></h2>
+                            <p id="modal-movie-description" style="font-size: 20px"></p>
+
+                            <p>Onde assistir:</p>
+                            <div id="modal-movie-providers2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
