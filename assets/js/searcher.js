@@ -45,23 +45,29 @@ function searchMoviesAndTvs(search) {
 
     $.ajax(settings).done(function (response) {
         movieSearhs = response;
-        console.log(response);
+        // console.log(response);
         let results = 0;
 
         $("#results_movies_tv").show();
         $("#results_movies_tv").html("");
 
+        var tab = 2001;
         response.results.forEach((i) => {
-            console.log(i);
             if (i.poster_path) {
                 $("#results_movies_tv").append(`
-                <div class="col-2" style="margin-bottom: 20px;">
-                <img src="https://image.tmdb.org/t/p/original` + i.poster_path + `" width="100%" alt="" onclick="searchInfo(${results},` + i.id + `)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <div class="result-item" style="width: calc(100% / 6 - 10px); margin-bottom: 20px;" tabindex="` + tab + `">
+                <img src="https://image.tmdb.org/t/p/original` + i.poster_path + `" alt="" onclick="searchInfo(${results},` + i.id + `)" data-bs-toggle="modal" data-bs-target="#exampleModal">
             </div>
             `);
             }
             results++;
+            tab++;
         });
+
+        console.log(response.results.length)
+        if (response.results.length > 0) {
+            focusElements();
+        }
     });
 
 }

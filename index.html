@@ -12,18 +12,15 @@
 
     <script src="plugins/jquery/jquery-3.7.1.min.js"></script>
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="plugins/bootstrap/js/popper.min.js"></script>
-    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+    <script src="webOSTVjs-1.2.10/webOSTV.js" charset="utf-8"></script>
+    <script src="webOSTVjs-1.2.10/webOSTV-dev.js" charset="utf-8"></script>
 
     <script src="keys.js"></script>
     <script src="assets/js/apps.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/searcher.js"></script>
 
-    <script src="webOSTVjs-1.2.10/webOSTV.js" charset="utf-8"></script>
-	<script src="webOSTVjs-1.2.10/webOSTV-dev.js" charset="utf-8"></script>
-    
     <script>
         // webOS.service.request("luna://com.webos.service.applicationmanager", {
         //     method: "listApps",
@@ -56,7 +53,7 @@
         <div class="content">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                    <a href="index.html" class="nav-link nav-button">
+                    <a href="index.html" class="nav-link nav-button" tabindex="101">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
                             class="nav-icon"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
                             <path
@@ -65,27 +62,28 @@
                         Início
                     </a>
 
-                    <a href="apps.html" class="nav-link nav-button">
+                    <!-- <a href="apps.html" class="nav-link nav-button" tabindex="102">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                            class="nav-icon"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                            class="nav-icon">
                             <path
                                 d="M296 32h192c13.3 0 24 10.7 24 24v160c0 13.3-10.7 24-24 24H296c-13.3 0-24-10.7-24-24V56c0-13.3 10.7-24 24-24zm-80 0H24C10.7 32 0 42.7 0 56v160c0 13.3 10.7 24 24 24h192c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24zM0 296v160c0 13.3 10.7 24 24 24h192c13.3 0 24-10.7 24-24V296c0-13.3-10.7-24-24-24H24c-13.3 0-24 10.7-24 24zm296 184h192c13.3 0 24-10.7 24-24V296c0-13.3-10.7-24-24-24H296c-13.3 0-24 10.7-24 24v160c0 13.3 10.7 24 24 24z" />
                         </svg>
                         Apps
-                    </a>
+                    </a> -->
 
-                    <button class="nav-link nav-button" type="button">
+                    <!-- <button class="nav-link nav-button" type="button" tabindex="103">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                            class="nav-icon"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                            class="nav-icon">
                             <path
                                 d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2l144 0c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48l-97.5 0c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3l0-38.3 0-48 0-24.9c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192l64 0c17.7 0 32 14.3 32 32l0 224c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32L0 224c0-17.7 14.3-32 32-32z" />
                         </svg>
                         Recomendados
-                    </button>
+                    </button> -->
 
                     <div class="ms-auto d-flex align-items-center">
                         <!-- pesquisa -->
-                        <button type="button" class="nav-link btn-nav" onclick="showModalBar('search-bar')">
+                        <button type="button" class="nav-link btn-nav" onclick="showModalBar('search-bar')"
+                            tabindex="104">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                                 class="nav-icon"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
                                 <path
@@ -94,7 +92,8 @@
                         </button>
 
                         <!-- configurações -->
-                        <button type="button" class="nav-link btn-nav" onclick="showModalBar('modal-config')">
+                        <button type="button" class="nav-link btn-nav" onclick="showModalBar('modal-config')"
+                            tabindex="105">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                                 class="nav-icon"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
                                 <path
@@ -115,7 +114,12 @@
                         <h2 id="movie-title">Filme 1</h2>
                         <p id="movie-description">descrição do filme</p>
 
-                        <div id="btn-more"></div>
+                        <div>
+                            <button class="btn btn-secondary" id="btn-more" tabindex="201" data-array="0"
+                                data-filme="0">
+                                Mais informações
+                            </button>
+                        </div>
                     </div>
                     <div class="col-5" style="height: 100%;">
                         <span style="width: 10px; height: 10px; border-radius: 50%; background: #fff;"></span>
@@ -135,70 +139,70 @@
 
                     <div class="row">
                         <div class="col">
-                            <div class="card_app">
+                            <div class="card_app" tabindex="301">
                                 <img src="assets/imgs/logos/tv.png" id="imgtv" class="card-img-top" alt="tv"><br>
                                 <!-- <span>TV</span> -->
                             </div>
                         </div>
 
                         <div class="col">
-                            <div class="card_app">
+                            <div class="card_app" tabindex="302">
                                 <img src="assets/imgs/logos/netflix.png" class="card-img-top" alt="tv"><br>
                                 <!-- <span>Netflix</span> -->
                             </div>
                         </div>
 
                         <div class="col">
-                            <div class="card_app">
+                            <div class="card_app" tabindex="303">
                                 <img src="assets/imgs/logos/max.png" class="card-img-top" alt="tv"><br>
                                 <!-- <span>Max</span> -->
                             </div>
                         </div>
 
                         <div class="col">
-                            <div class="card_app">
+                            <div class="card_app" tabindex="304">
                                 <img src="assets/imgs/logos/prime-video.png" class="card-img-top" alt="tv"><br>
                                 <!-- <span>Prime Vídeo</span> -->
                             </div>
                         </div>
 
                         <div class="col">
-                            <div class="card_app">
+                            <div class="card_app" tabindex="305">
                                 <img src="assets/imgs/logos/disney.png" class="card-img-top" alt="tv"><br>
                                 <!-- <span>Disney+</span> -->
                             </div>
                         </div>
 
                         <div class="col">
-                            <div class="card_app">
+                            <div class="card_app" tabindex="306">
                                 <img src="assets/imgs/logos/browser.png" class="card-img-top" alt="tv"><br>
                                 <!-- <span>Navegador</span> -->
                             </div>
                         </div>
 
                         <div class="col">
-                            <div class="card_app">
+                            <div class="card_app" tabindex="307">
                                 <img src="assets/imgs/logos/youtube.png" class="card-img-top" alt="tv"><br>
                                 <!-- <span>YouTube</span> -->
                             </div>
                         </div>
 
                         <div class="col">
-                            <div class="card_app">
+                            <div class="card_app" tabindex="308">
                                 <img src="assets/imgs/logos/tv.png" class="card-img-top" alt="tv"><br>
                                 <!-- <span>TV</span> -->
                             </div>
                         </div>
 
                         <div class="col">
-                            <div class="card_app">
+                            <div class="card_app" tabindex="309">
                                 <img src="assets/imgs/logos/tv.png" class="card-img-top" alt="tv"><br>
                                 <!-- <span>TV</span> -->
                             </div>
                         </div>
 
                         <div class="col">
-                            <div class="card_app">
+                            <div class="card_app" tabindex="310">
                                 <img src="assets/imgs/logos/tv.png" class="card-img-top" alt="tv"><br>
                                 <!-- <span>TV</span> -->
                             </div>
@@ -212,9 +216,10 @@
     <div class="modal-bar" id="search-bar">
         <div class="modal-bar-dialog">
             <div class="modal-bar-header text-end">
-                <button type="button" class="btn-closer" aria-label="Close" onclick="hideModalBar('search-bar')">
+                <button type="button" class="btn-closer" aria-label="Close" onclick="hideModalBar('search-bar')"
+                    tabindex="1003">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                        width="25px"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        width="30px"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
                         <path
                             d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
                     </svg>
@@ -224,7 +229,7 @@
                 <div class="container-fluid">
                     <div class="row"><!-- PESQUISA -->
                         <div class="col">
-                            <button type="button" class="btn-outline">
+                            <button type="button" class="btn-outline" tabindex="1001">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
                                     width="20px"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
                                     <path
@@ -234,7 +239,7 @@
                         </div>
                         <div class="col-11">
                             <input type="text" class="form-input" id="search-input" placeholder="Pesquisar..."
-                                onkeyup="searcher()">
+                                onkeyup="searcher()" tabindex="1002">
                         </div>
                     </div>
 
@@ -242,7 +247,13 @@
                         <h2>Aplicativos</h2>
                     </div>
 
-                    <div class="row mt-3" id="results_movies_tv"><!-- FILMES E SÉRIES --></div>
+                    <div class="mt-3" id="results_movies_tv_wrapper"
+                        style="overflow-x: auto; overflow-y: hidden; max-width: 100%;">
+                        <div id="results_movies_tv" class="d-flex flex-row"
+                            style="gap: 10px; scroll-behavior: smooth; width: max-content;">
+                            <!-- FILMES E SÉRIES serão adicionados aqui -->
+                        </div>
+                    </div>
 
                     <div class="row"><!-- INTERNET --></div>
                 </div>
@@ -344,6 +355,114 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+        var focusableElements;
+        var tabIndexes;
+        var groupedTabIndexes = {};
+        var tabIndexMatrix;
+        var focusedIndex = 0;
+        var focusedRow = 0;
+
+        var initialTabIndex;
+        var initialElement;
+        var focused;
+
+        function focusElements() {
+            focusableElements = Array.from(document.querySelectorAll("[tabindex]"));
+            tabIndexes = focusableElements.map(el => parseInt(el.getAttribute("tabindex")));
+            // Agrupa por "linha" (primeiro algarismo)
+            tabIndexes.forEach(idx => {
+                const row = Math.floor(idx / 100);
+                if (!groupedTabIndexes[row]) groupedTabIndexes[row] = [];
+                groupedTabIndexes[row].push(idx);
+            });
+            // Converte para matriz bidimensional
+            tabIndexMatrix = Object.values(groupedTabIndexes);
+            console.log(tabIndexMatrix);
+
+            // Foco inicial
+            // focusableElements[focusedIndex].focus();
+            initialTabIndex = tabIndexMatrix[focusedIndex][focusedRow];
+            initialElement = focusableElements.find(el => parseInt(el.getAttribute("tabindex")) === initialTabIndex);
+            if (initialElement) {
+                initialElement.focus();
+                console.log('Foco inicial:', initialElement);
+            }
+            console.log('initial', initialTabIndex);
+            focused = initialElement;
+        }
+
+        focusElements();
+
+        document.addEventListener("keydown", function (e) {
+            switch (e.keyCode) {
+                case 37: // ←
+                    focusedRow = (focusedRow - 1 + tabIndexMatrix[focusedIndex].length) % tabIndexMatrix[focusedIndex].length;
+                    // console.log("Botão Esquerda pressionado", focusedIndex, focusedRow);
+                    console.log("Botão Esquerda pressionado", focusedIndex, focusedRow, tabIndexMatrix[focusedIndex][focusedRow]);
+                    // focusedIndex = (focusedIndex - 1 + focusableElements.length) % focusableElements.length;
+                    // focusableElements[focusedIndex].focus();
+                    focused = focusableElements.find(el => parseInt(el.getAttribute("tabindex")) === tabIndexMatrix[focusedIndex][focusedRow]);
+                    if (focused) {
+                        focused.focus();
+                        console.log('Foco movido para:', focused);
+                    } else {
+                        console.log('Elemento não encontrado para o tabindex:', tabIndexMatrix[focusedIndex][focusedRow]);
+                    }
+                    break;
+                case 38: // ↑
+                    focusedIndex = (focusedIndex - 1 + tabIndexMatrix.length) % tabIndexMatrix.length;
+                    focusedRow = 0;
+                    // console.log("Botão Cima pressionado", focusedIndex, focusedRow);
+                    console.log("Botão Cima pressionado", focusedIndex, focusedRow, tabIndexMatrix[focusedIndex][focusedRow]);
+                    // focusedIndex = (focusedIndex - 100 + focusableElements.length) % focusableElements.length;
+                    // focusableElements[focusedIndex].focus();
+                    focused = focusableElements.find(el => parseInt(el.getAttribute("tabindex")) === tabIndexMatrix[focusedIndex][focusedRow]);
+                    if (focused) {
+                        focused.focus();
+                        console.log('Foco movido para:', focused);
+                    } else {
+                        console.log('Elemento não encontrado para o tabindex:', tabIndexMatrix[focusedIndex][focusedRow]);
+                    }
+                    break;
+                case 39: // →
+                    focusedRow = (focusedRow + 1 + tabIndexMatrix[focusedIndex].length) % tabIndexMatrix[focusedIndex].length;
+                    // console.log("Botão Direita pressionado", focusedIndex, focusedRow);
+                    console.log("Botão Direita pressionado", focusedIndex, focusedRow, tabIndexMatrix[focusedIndex][focusedRow]);
+                    focused = focusableElements.find(el => parseInt(el.getAttribute("tabindex")) === tabIndexMatrix[focusedIndex][focusedRow]);
+                    if (focused) {
+                        focused.focus();
+                        console.log('Foco movido para:', focused);
+                    } else {
+                        console.log('Elemento não encontrado para o tabindex:', tabIndexMatrix[focusedIndex][focusedRow]);
+                    }
+                    break;
+                case 40: // ↓
+                    focusedIndex = (focusedIndex + 1 + tabIndexMatrix.length) % tabIndexMatrix.length;
+                    focusedRow = 0;
+                    // console.log("Botão Baixo pressionado", focusedIndex, focusedRow);
+                    console.log("Botão Baixo pressionado", focusedIndex, focusedRow, tabIndexMatrix[focusedIndex][focusedRow]);
+                    // focusedIndex = (focusedIndex + 1) % focusableElements.length;
+                    // focusableElements[focusedIndex].focus();
+                    focused = focusableElements.find(el => parseInt(el.getAttribute("tabindex")) === tabIndexMatrix[focusedIndex][focusedRow]);
+                    if (focused) {
+                        focused.focus();
+                        console.log('Foco movido para:', focused);
+                    } else {
+                        console.log('Elemento não encontrado para o tabindex:', tabIndexMatrix[focusedIndex][focusedRow]);
+                    }
+                    break;
+                case 13: // OK
+                    // focusableElements[focusedIndex].click();
+                    break;
+                case 10009: // RETURN (Back)
+                    console.log("Botão Voltar pressionado");
+                    break;
+            }
+        });
+    </script>
 </body>
 
 </html>

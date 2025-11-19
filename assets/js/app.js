@@ -1,3 +1,38 @@
+// document.addEventListener("keydown", function (e) {
+//     switch (e.keyCode) {
+//         case 37: // ← Left
+//             console.log("Seta para esquerda");
+//             break;
+//         case 38: // ↑ Up
+//             console.log("Seta para cima");
+//             break;
+//         case 39: // → Right
+//             console.log("Seta para direita");
+//             break;
+//         case 40: // ↓ Down
+//             console.log("Seta para baixo");
+//             break;
+//         case 13: // OK/Enter
+//             console.log("Botão OK");
+//             break;
+//         case 10009: // RETURN (Back)
+//             console.log("Botão Voltar");
+//             break;
+//         case 415: // PLAY
+//             console.log("Botão Play");
+//             break;
+//         case 19: // PAUSE
+//             console.log("Botão Pause");
+//             break;
+//         case 413: // STOP
+//             console.log("Botão Stop");
+//             break;
+//         default:
+//             console.log("Tecla pressionada: ", e.keyCode);
+//             break;
+//     }
+// });
+
 var movies = [];
 var settings = {
     "url": "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=pt-BR&page=1&sort_by=popularity.desc&api_key=" + api_key,
@@ -15,10 +50,15 @@ $.ajax(settings).done(function (response) {
 
         $("#movie-title").text(response.results[0].title);
         $("#movie-description").text(response.results[0].overview);
-        $("#btn-more").html(`<button type="button" class="btn btn-secondary" id="btn-more"
-                    onclick="showModalBar('more-info');moreInfo(0, `+ response.results[0].id + `)">
-                    Mais informações
-                </button>`);
+        // $("#btn-more").prop('onclick', "showModalBar('more-info');moreInfo(0, "+ response.results[0].id + ")")
+
+        $("#btn-more").attr('data-array', "0");
+        $("#btn-more").attr('data-filme', response.results[0].id);
+
+        // `<button type="button" class="btn btn-secondary" id="btn-more"
+        //             onclick="showModalBar('more-info');moreInfo(0, `+ response.results[0].id + `)" tabindex="201">
+        //             Mais informações
+        //         </button>`);
 
         var images = [];
         for (let i = 0; i < 10; i++) {
@@ -48,10 +88,13 @@ $.ajax(settings).done(function (response) {
                 }
                 $("#movie-description").text(overview);
 
-                $("#btn-more").html(`<button type="button" class="btn btn-secondary" id="btn-more"
-                            onclick="showModalBar('more-info');moreInfo(${i}, ` + response.results[i].id + `)">
-                            Mais informações
-                        </button>`);
+                // $("#btn-more").prop('onclick', "showModalBar('more-info');moreInfo(" + i + ", " + response.results[i].id + ")");
+                $("#btn-more").attr('data-array', i);
+                $("#btn-more").attr('data-filme', response.results[i].id);
+                // `<button type="button" class="btn btn-secondary" id="btn-more"
+                //         onclick="showModalBar('more-info');moreInfo(${i}, ` + response.results[i].id + `)" tabindex="201">
+                //         Mais informações
+                //     </button>`);
             };
             img.src = "https://image.tmdb.org/t/p/original" + response.results[i].backdrop_path;
 
@@ -139,6 +182,19 @@ function showModalBar(id) {
     $('#search-input').val(''); // Limpa o campo de busca
     $('#search-input').focus(); // Foca no campo de busca
     $('#search-input').trigger('input'); // Dispara o evento de input para atualizar os resultados
+
+    if (id == 'search-bar') {
+        focusedIndex = 3;
+        focusedRow = 2;
+        focused = focusableElements.find(el => parseInt(el.getAttribute("tabindex")) === 1002);
+
+        if (focused) {
+            focused.focus();
+            console.log('Focado no elemento:', focused);
+        } else {
+            console.log('Elemento não encontrado para o tabindex:', tabIndexMatrix[focusedIndex][focusedRow]);
+        }
+    }
 }
 
 // Função para ocultar o aplicativo
@@ -148,14 +204,26 @@ function hideModalBar(id) {
 }
 
 document.addEventListener('keydown', function (event) {
-  if (event.key === 'Escape') {
-    $(".modal-bar").hide('slow');
-  }
+    if (event.key === 'Escape') {
+        $(".modal-bar").hide('slow');
+    }
+});
+
+$(document).on('click', '#btn-more', function (e) {
+    e.preventDefault();
+    console.log("Botão Mais Informações clicado");
+
+    const arrayId = $(this).attr('data-array');
+    const filmeId = $(this).attr('data-filme');
+
+    showModalBar('more-info');
+    moreInfo(arrayId, filmeId);
 });
 
 var providersList = [];
 
 async function moreInfo(arrayId, filmeId) {
+    console.log(arrayId, filmeId);
     $("#modal-movie-title-more").html(movies.results[arrayId].title);
     $("#modal-movie-description-more").html(movies.results[arrayId].overview);
     $("#modal-movie-poster").attr("src", "https://image.tmdb.org/t/p/w500" + movies.results[arrayId].poster_path);
@@ -226,7 +294,7 @@ function providers(filmeId) {
     });
 }
 
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
     // O botão "Back" em TVs LG webOS geralmente é identificado como "Backspace" ou "BrowserBack"
     if (event.key === 'Backspace' || event.key === 'BrowserBack' || event.keyCode === 461) {
         // Fecha todos os modais com a classe .modal-bar

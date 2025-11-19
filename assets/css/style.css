@@ -1,7 +1,13 @@
-*{
+* {
     font-family: 'Lato', sans-serif;
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Comfortaa', sans-serif;
 }
 
@@ -42,14 +48,15 @@ svg polyline {
 }
 
 #time-container {
-	/* position: fixed; */
-	top: 10px;
-	right: 10px;
-	background: rgba(0,0,0,0.0);
-	padding: 10px;
-	border-radius: 10px;
-	z-index: 1;
+    /* position: fixed; */
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.0);
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 1;
 }
+
 /* Estilo da hora */
 /* #time-container {
     position: absolute;
@@ -156,7 +163,7 @@ svg polyline {
     display: none;
     overflow: auto;
 }
- 
+
 .modal-bar-header {
     padding: 20px;
 }
@@ -165,7 +172,7 @@ svg polyline {
     color: #fff !important;
     background: transparent !important;
     border: none !important;
-    
+
 }
 
 .navbar {
@@ -187,8 +194,9 @@ svg polyline {
 }
 
 .content {
-    background: radial-gradient(circle at 70% 50%, rgba(0,0,0,0.3), rgba(0,0,0,0.9) );
+    background: radial-gradient(circle at 70% 50%, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
 }
+
 .content-slider {
     padding-top: 20vh;
     padding-bottom: 0vh;
@@ -207,7 +215,8 @@ svg polyline {
     font-size: 25px;
 }
 
-#configScreen input, #configScreen button {
+#configScreen input,
+#configScreen button {
     border-radius: 50px;
     padding: 15px;
     margin-bottom: 20px;
@@ -240,26 +249,62 @@ svg polyline {
 /* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
     width: 12px;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
-    border: 2px solid rgba(0,0,0,0.2);
+    border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.5);
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 
 /* Firefox */
 * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(255,255,255,0.3) rgba(0,0,0,0.1);
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.1);
+}
+
+*:focus {
+    outline: none !important;
+    border-bottom: 2px solid #fff;
+    /* background-color: #444; */
+}
+
+.result-item {
+    cursor: pointer;
+}
+
+.result-item img {
+    width: calc(100vw / 6 - 10px);
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+#results_movies_tv_wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+#results_movies_tv_wrapper::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.result-item {
+    cursor: pointer;
+    outline: none;
+}
+
+.result-item:focus {
+    border: 2px solid #007bff;
+    transform: scale(1.05);
 }
